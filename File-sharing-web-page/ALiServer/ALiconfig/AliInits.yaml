@@ -1,0 +1,5 @@
+AutoRefresh: true
+UploadRate: 8
+RefreshDuration: '@every 1h30m'
+
+RefreshToken: ''
