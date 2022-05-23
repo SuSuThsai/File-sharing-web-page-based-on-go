@@ -1,8 +1,6 @@
 package UpLoad
 
 import (
-	//本地
-	"fmt"
 	"github.com/jakeslee/aliyundrive"
 	"log"
 	"strconv"
@@ -21,27 +19,24 @@ func IsExist() string {
 		secondPath := "/文件共享目录/用户文件列表"
 		rsp0, _, err := Global.Global.Driver.ResolvePathToFileId(Global.Global.Credential, secondPath)
 		if err != nil && err != aliyundrive.ErrPartialFoundPath {
-			fmt.Println("寻找路径出错:", err.Error())
-			log.Panic(err)
+			log.Println("寻找路径出错:", err.Error())
 		}
 		fullpath = secondPath + userid
-		fmt.Println(fullpath)
+		//fmt.Println(fullpath)
 		rsp, _, err := Global.Global.Driver.ResolvePathToFileId(Global.Global.Credential, fullpath)
-		fmt.Println(rsp, rsp0)
+		//fmt.Println(rsp, rsp0)
 		if rsp0 == rsp {
 			Global.Global.Driver.CreateDirectory(Global.Global.Credential, rsp, strconv.Itoa(int(Global.Global.User.ID)))
 			rsp, _, err = Global.Global.Driver.ResolvePathToFileId(Global.Global.Credential, fullpath)
 			if err != nil && err != aliyundrive.ErrPartialFoundPath {
-				fmt.Println("寻找路径出错:", err.Error())
-				log.Panic(err)
+				log.Println("寻找路径出错:", err.Error())
 			}
 			//Global.Global.Driver.CreateDirectory(Global.Global.Credential,rsp,"图片")
 			//Global.Global.Driver.CreateDirectory(Global.Global.Credential,rsp,"视频")
 			//Global.Global.Driver.CreateDirectory(Global.Global.Credential,rsp,"音乐")
 			Global.Global.Driver.CreateDirectory(Global.Global.Credential, rsp, "文件")
 		} else if err != nil && err != aliyundrive.ErrPartialFoundPath {
-			fmt.Println("寻找路径出错:", err.Error())
-			log.Panic(err)
+			log.Println("寻找路径出错:", err.Error())
 		}
 	}
 	return fullpath
