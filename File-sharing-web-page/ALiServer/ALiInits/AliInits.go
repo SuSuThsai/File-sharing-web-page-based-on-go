@@ -1,30 +1,27 @@
 package ALiInits
 
 import (
-	"File-sharing-web-page/Global"
 	//本地
-	"fmt"
 	"log"
 	//第三方
 	"github.com/jakeslee/aliyundrive"
 	"github.com/spf13/viper"
+	//目录
+	"File-sharing-web-page/Global"
 )
 
 func InitsConfig() {
 	base := viper.New()
 	//文件路径
-	base.SetConfigFile(Global.ConfigFilePath)
+	base.SetConfigFile(Global.AliConfigFilePath)
 	if err := base.ReadInConfig(); err != nil {
-		fmt.Println("配置文件路径出错", err)
-		log.Panic(err)
+		log.Panic("解析配置文件失败", err.Error())
 	}
 	if err := base.Unmarshal(&Global.Global.DriverConfig); err != nil {
-		fmt.Println("解析配置文件失败", err.Error())
-		log.Panic(err)
+		log.Panic("解析配置文件失败", err.Error())
 	}
 	if err := base.Unmarshal(&Global.Global.RefreshTokenConfig); err != nil {
-		fmt.Println("获取Token出错", err.Error())
-		log.Panic(err)
+		log.Panic("获取Token出错", err.Error())
 	}
 }
 
@@ -42,9 +39,5 @@ func InitsDriver() {
 	if err != nil {
 		log.Panic("获取个人信息失败", err.Error())
 	}
-	fmt.Println("阿里云主人ID为：", Global.Global.Credential.UserId)
-}
-
-func UploadType(x string) string {
-	return "/文件"
+	log.Println("阿里云主人ID为：", Global.Global.Credential.UserId)
 }
