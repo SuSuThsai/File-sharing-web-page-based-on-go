@@ -1,0 +1,22 @@
+#mysql
+Db: mysql
+Host: 'localhost'
+Port: 3306
+Dbuser: root
+DbPassWord:
+DbName: 'AliUserInfo'
+
+#redis
+DbR: redis
+HostR: '0.0.0.0'
+PortR: 49154
+DbuserR: 'default'
+DbPassWordR: 'redispw'
+DBModel: 0
+
+#JWT
+JWTKEY: '253157896'
+
+
+
+
