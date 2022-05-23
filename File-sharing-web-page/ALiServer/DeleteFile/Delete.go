@@ -1,17 +1,19 @@
 package DeleteFile
 
 import (
-	"File-sharing-web-page/Global"
-	"fmt"
+	//本地
 	"log"
+	//第三方
+	//目录
+	"File-sharing-web-page/Global"
 )
 
 func DeleteFile(fileId string) (err error) {
 	base, err := Global.Global.Driver.RemoveFile(Global.Global.Credential, fileId)
 	if err != nil {
-		fmt.Println("删除失败:", err.Error())
-		log.Fatal(err.Error())
+		log.Println("删除失败:", err.Error())
+		return
 	}
-	fmt.Println(base.Code, base.Message)
+	log.Println(base.Code, base.Message)
 	return
 }
