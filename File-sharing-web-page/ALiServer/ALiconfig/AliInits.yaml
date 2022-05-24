@@ -2,4 +2,4 @@ AutoRefresh: true
 UploadRate: 8
 RefreshDuration: '@every 1h30m'
 
-RefreshToken: '填写阿里云的refreshtoken'
+RefreshToken: '401c9a0da18040c6946efd99bca580eb'
