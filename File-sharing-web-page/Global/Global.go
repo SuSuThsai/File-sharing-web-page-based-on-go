@@ -23,11 +23,12 @@ var Global struct {
 	DriverConfig       ALiconfig.DriverConfig
 	RefreshTokenConfig ALiconfig.RefreshTokenConfig
 	//Gin端
-	User      GINconfig.UserInfo
-	DB        *gorm.DB
-	DBR       *redis.Client
-	DBR2      *redis.Client
-	GINMysql  GINconfig.MysqlInfo
-	GINRedis  GINconfig.RedisInfo
-	GINRedis2 GINconfig.RedisInfo
+	User          GINconfig.UserInfo
+	DB            *gorm.DB
+	DBR           *redis.Client
+	DBR2          *redis.Client
+	GINMysql      GINconfig.MysqlInfo
+	GINRedis      GINconfig.RedisInfo
+	GINRedis2     GINconfig.RedisInfo
+	ControlCenter GINconfig.ControlCenter
 }
