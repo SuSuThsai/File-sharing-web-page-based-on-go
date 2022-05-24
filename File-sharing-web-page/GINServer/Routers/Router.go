@@ -13,8 +13,10 @@ import (
 )
 
 func InitUserRouter() {
-	cod := gin.Default()
+	gin.SetMode("debug")
+	cod := gin.New()
 	cod.Use(MiddleWare.Cors())
+	cod.Use(gin.Recovery())
 	login := cod.Group("")
 	{
 		login.POST("/Login", v1.Login)
