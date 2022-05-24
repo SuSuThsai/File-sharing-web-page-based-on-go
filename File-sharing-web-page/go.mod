@@ -12,6 +12,7 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/gomodule/redigo v1.8.8
 	github.com/jakeslee/aliyundrive v1.0.2
+	github.com/pkg/errors v0.9.1
 	github.com/spf13/viper v1.11.0
 	golang.org/x/crypto v0.0.0-20220518034528-6f7dac969898
 	golang.org/x/net v0.0.0-20220412020605-290c469a71a5
