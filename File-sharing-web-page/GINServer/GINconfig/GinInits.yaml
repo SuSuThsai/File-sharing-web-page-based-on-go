@@ -17,6 +17,10 @@ DBModel: 0
 #JWT
 JWTKEY: '253157896'
 
+#控制中心
+HostC: '127.0.0.1'
+PortC: 8963
+
 
 
 
