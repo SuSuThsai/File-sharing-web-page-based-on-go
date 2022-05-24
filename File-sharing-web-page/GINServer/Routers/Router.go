@@ -1,6 +1,9 @@
 package Routers
 
 import (
+	"File-sharing-web-page/GINServer/GINModels/ginRegusture"
+	"net/http"
+
 	//本地
 	"log"
 	"strconv"
@@ -21,6 +24,9 @@ func InitUserRouter() {
 	{
 		login.POST("/Login", v1.Login)
 		login.POST("/adduser", v1.AddUser)
+		login.GET("/HeathyCeak", func(c *gin.Context) {
+			c.JSON(http.StatusOK, gin.H{})
+		})
 	}
 	User := cod.Group("/user", MiddleWare.JwtToken())
 	{
@@ -36,5 +42,6 @@ func InitUserRouter() {
 	if err != nil {
 		log.Panicln("获取端口失败,启用端口5053：", err.Error())
 	}
+	ginRegusture.GinRegusture(port)
 	cod.Run(":" + strconv.Itoa(port))
 }
