@@ -41,6 +41,11 @@ type RedisInfo struct {
 	DBModel     int    `mapstructure:"dbModel" json:"db_model"`
 }
 
+type ControlCenter struct {
+	HostC string `mapstructure:"HostC" json:"host_c"`
+	PortC int    `mapstructure:"PortC" json:"port_c"`
+}
+
 type JWT struct {
 	JwtKey string `mapstructure:"jwtKey" json:"jwt_key"`
 }
