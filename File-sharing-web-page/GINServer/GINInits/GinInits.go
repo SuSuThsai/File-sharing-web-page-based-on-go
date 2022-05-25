@@ -1,7 +1,6 @@
 package GINInits
 
 import (
-	"fmt"
 	"log"
 	//第三方
 	"github.com/spf13/viper"
@@ -32,7 +31,4 @@ func InitsConfig() {
 	if err := base.Unmarshal(&Global.Global.ControlCenter); err != nil {
 		log.Panic("获取控制中心配置失败", err.Error())
 	}
-	fmt.Println(Global.Global.ControlCenter.PortC)
-
-	fmt.Println("1")
 }
