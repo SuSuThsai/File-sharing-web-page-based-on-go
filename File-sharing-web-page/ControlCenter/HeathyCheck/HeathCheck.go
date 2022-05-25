@@ -2,6 +2,7 @@ package HeathyCheck
 
 import (
 	"File-sharing-web-page/ControlCenter/CGlobal"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -16,14 +17,13 @@ func HeathyCheck() {
 		}
 		re, err := c.Do(r)
 		if err != nil || re.StatusCode != http.StatusOK {
-			if CGlobal.ServerIP[s] > 0 {
-				CGlobal.ServerIP[s]--
-			}
+			CGlobal.ServerIP[s]++
 		}
 		if re.StatusCode == http.StatusOK {
-			log.Println("ip：", s, "存活")
+			log.Println("服务器ip：", s, "存活")
 		}
 		if CGlobal.ServerIP[s] >= 10 {
+			fmt.Println("服务器挂掉了IP：", s)
 			delete(CGlobal.ServerIP, s)
 		}
 	}
